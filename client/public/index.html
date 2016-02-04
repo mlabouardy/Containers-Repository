@@ -1,0 +1,50 @@
+<html ng-app="containersApp">
+<head>
+  <title>Containers Repository</title>
+  <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="container container-margin gray-bg" ng-controller='MainCtrl'>
+  <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <a ng-click="create()"><span class="label label-info pull-right"><i class="fa fa-plus"></i> Create a container</span></a>
+            <h5>List of containers</h5>
+          </div>
+          <div class="ibox-content">
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>URL</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="container in containers">
+                  <td>{{container.name}}</td>
+                  <td>{{container.description}}</td>
+                  <td><a class="btn btn-success btn-xs" target="_blank" href="http://{{hostname+':'+container.port}}"><i class="fa fa-share"></i> Open</a></td>
+                  <td>
+                    <div class="btn-group">
+                      <a class="btn btn-primary btn-xs" ng-click="update(container)"><i class="fa fa-pencil"></i> Update</a>
+                      <a class="btn btn-danger btn-xs" ng-click="delete(container.id)"><i class="fa fa-trash"></i> Delete</a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </body>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/endpoint.js"></script>
+    </html>
