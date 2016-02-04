@@ -34,7 +34,8 @@ public class ContainerService implements ContainerDAO{
 		return repository.findOne(id);
 	}
 
-	
-	
-
+	@Override
+	public void update(Container container) {
+		repository.save(container);
+	}
 }
