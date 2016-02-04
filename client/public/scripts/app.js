@@ -7,6 +7,9 @@ angular.module('containersApp',['ui.bootstrap'])
       var refresh=function(){
         Endpoint.containers().then(function(containers){
             $scope.containers=containers.data;
+            $scope.error=false;
+        },function(){
+            $scope.error=true;
         });
       }
 

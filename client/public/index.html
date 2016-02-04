@@ -15,7 +15,10 @@
             <h5>List of containers</h5>
           </div>
           <div class="ibox-content">
-            <table class="table table-hover table-sm">
+            <div ng-if="error" class="alert alert-danger">
+                Server is not responding ...
+            </div>
+            <table ng-if="!error" class="table table-hover table-sm">
               <thead>
                 <tr>
                   <th>Name</th>
