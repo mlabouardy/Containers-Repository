@@ -21,3 +21,6 @@ ExpressJS
 
 ![Alt text](screenshot.png "Screenshot of the client app")
 
+# Deploy
+  docker run --net="host" -d -p 9090:9090 --name containers-respository containers-respository
+
